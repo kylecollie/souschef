@@ -5,4 +5,7 @@ import { Component } from '@angular/core';
   selector: 'recipes',
   templateUrl: 'recipes.component.html'
 })
-export class RecipesComponent {}
+
+export class RecipesComponent {
+  public tags = [];
+}
