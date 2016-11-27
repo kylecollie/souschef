@@ -1,3 +1,6 @@
-h1 {
-    color: steelblue
+.tags div {
+    display: inline-block;
+}
+.tags span {
+    margin: 5px;
 }

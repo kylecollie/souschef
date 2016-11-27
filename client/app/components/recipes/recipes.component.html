@@ -1,6 +1,35 @@
-<form class="well">
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Add recipe title...">
-        <input type="text" class="form-control" placeholder="Add recipe description...">
+<div class="page-header">
+    <h2>{{Recipe.title}} <small>{{Recipe.description}}</small></h2>
+</div>
+<div class="container">
+    <h3>Ingredients</h3>
+    <div class="col-md-4">
+        <ul class="list-group">
+            <div *ngFor="let ingredient of Recipe.ingredients">
+                <li class="list-group-item">
+                    <span class="badge">{{ingredient.quantity}}</span> {{ingredient.name}}
+                </li>
+            </div>
+        </ul>
     </div>
-</form>
+</div>
+<div class="container">
+    <h3>Instructions</h3>
+    <div class="col-md-6">
+        <ul class="list-group">
+            <div *ngFor="let instruction of Recipe.instructions">
+                <li class="list-group-item-text">{{instruction.order}} - {{instruction.direction}}</li>
+            </div>
+        </ul>
+    </div>
+</div>
+<div class="container-fluid">
+    <h3>Tags</h3>
+    <div class="col-md-12">
+        <div class="tags">
+        <div *ngFor="let tag of Recipe.tags">
+            <span class="label label-info">{{tag}}</span>
+        </div>
+    </div>
+    </div>
+</div>
