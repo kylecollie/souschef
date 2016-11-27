@@ -39,3 +39,11 @@ bower_components
 
 # backup junk stuff
 junk
+
+# typescript transcompiled output
+client/app/*.js
+client/app/*.js.map
+client/app/components/*.js
+client/app/components/*.js.map
+client/app/services/*.js
+client/app/services/*.js.map
