@@ -7,4 +7,9 @@ export class RecipeService {
     constructor(private http:Http){
         console.log('Recipe Service Initialized...');
     }
+
+    getRecipes() {
+        return this.http.get('http://localhost:3000/api/recipes')
+        .map(res => res.json());
+    }
 }

@@ -12,8 +12,13 @@ var core_1 = require('@angular/core');
 var recipe_service_1 = require('../../services/recipe.service');
 var RecipesComponent = (function () {
     function RecipesComponent(recipeService) {
+        var _this = this;
         this.recipeService = recipeService;
-        this.Recipe = {};
+        this.recipeService.getRecipes()
+            .subscribe(function (recipes) {
+            _this.recipes = recipes;
+            console.log(recipes);
+        });
     }
     RecipesComponent = __decorate([
         core_1.Component({
