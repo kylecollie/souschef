@@ -25,9 +25,9 @@ export class RecipeFormComponent implements OnInit {
             instructions: this._fb.array([
                 this.initInstruction(),
             ]),
-            // tags: this._fb.array([
-            //     this.initTag(),
-            // ]),
+            tags: this._fb.array([
+                this.initTag(),
+            ]),
             imagePath: ['']
         });
     }
@@ -47,7 +47,7 @@ export class RecipeFormComponent implements OnInit {
 
     removeIngredient(i: number) {
         const control = <FormArray>this.myForm.controls['ingredients'];
-        control.removeAt(i);        
+        control.removeAt(i);
     }
 
     initInstruction() {
@@ -64,36 +64,27 @@ export class RecipeFormComponent implements OnInit {
 
     removeInstruction(i: number) {
         const control = <FormArray>this.myForm.controls['instructions'];
-        control.removeAt(i);        
+        control.removeAt(i);
     }
 
-// initTag() {
-//         return this._fb.group({
-//             tag: ['']
-//         });
-//     }
+    initTag() {
+        return this._fb.group({
+            tag: ['']
+        });
+    }
 
-//     addTag() {
-//         const control = <FormArray>this.myForm.controls['tags'];
-//         control.push(this.initTag());
-//     }
+    addTag() {
+        const control = <FormArray>this.myForm.controls['tags'];
+        control.push(this.initTag());
+    }
 
-//     removeTag(i: number) {
-//         const control = <FormArray>this.myForm.controls['tags'];
-//         control.removeAt(i);        
-//     }
+    removeTag(i: number) {
+        const control = <FormArray>this.myForm.controls['tags'];
+        control.removeAt(i);
+    }
 
-    save(model: Recipe) {
+    save(model: FormGroup) {
         // call API to save recipe
-        console.log(model);
+        console.log(JSON.stringify(model.value));
     }
 }
-    // newTag = '';
-    // tags = [];
-
-    // addTag(){
-    //     this.tags.push(this.newTag);
-    //     console.log('Added tag', this.newTag);
-    //     this.newTag ='';
-    //     console.log(this.tags);
-    // }

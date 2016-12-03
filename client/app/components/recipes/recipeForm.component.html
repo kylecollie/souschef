@@ -8,13 +8,13 @@
                 <!--fields will go here-->
                 <!--title-->
                 <div class="form-group">
-                    <label class="bg-primary" for="title">Title</label>
+                    <label class="" for="title">Title</label>
                     <input type="text" class="form-control" formControlName="title" placeholder="Add new recipe title or name...">
                     <small *ngIf="!myForm.controls.title.valid" class="text-danger">Title is required (minimum 5 characters).</small>
                 </div>
                 <!--description-->
                 <div class="form-group">
-                    <label class="bg-primary" for="description">Description</label>
+                    <label class="" for="description">Description</label>
                     <input type="text" class="form-control" formControlName="description" placeholder="Add a brief description of the new recipe..."
                         value="">
                     <small *ngIf="!myForm.controls.description.valid" class="text-danger">Description is required.</small>
@@ -52,18 +52,21 @@
                 </div>
                 <br><br>
                 <!--list of tags-->
-                <!--<div formArrayName="tags">
-            <div *ngFor="let tag of myForm.controls.tags.controls; let k=index" >
-                <span>Tags</span>
-                    <span *ngIf="myForm.controls.tags.controls.length > 1" (click)="removeTag(k)" ></span>
-            </div>
-            <div [formGroupName]="k" >
-                <div>
-                    <label for="tag">Tag</label>
-                    <input type="text" formControlName="tag" value="">
+                <div formArrayName="tags">
+                    <div *ngFor="let tag of myForm.controls.tags.controls; let k=index" class="panel panel-primary">
+                        <div class="panel-heading">
+                            <span class="panel-title">Tag {{k + 1}}</span>
+                            <span class="glyphicon glyphicon-remove pull-right" *ngIf="myForm.controls.tags.controls.length > 1" (click)="removetag(k)"></span>
+                        </div>
+                        <div class="panel-body" [formGroupName]="k">
+                            <tag [group]="myForm.controls.tags.controls[k]"></tag>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>-->
+                <div class="margin-20">
+                    <a (click)="addTag()" style="cursor: default"> Add another tag +</a>
+                </div>
+                <br><br>
                 <!--imagePath-->
                 <div class="form-group">
                     <label for="imagePath">Image Path</label>
@@ -76,24 +79,3 @@
         </div>
     </div>
 </div>
-<!--<div class="col-md-4">
-    <form class="well">
-        <div class="form-group">
-            <label for="recipeTitle">Title</label>
-            <input type="text" class="form-control" id="recipeTitle" name="recipeTitle" placeholder="Add new recipe title or name..."
-                value="">
-        </div>
-        <div class="form-group">
-            <label for="recipeDescription">Description</label>
-            <input type="text" class="form-control" id="recipeDescription" name="recipeDescription" placeholder="Add a brief description of the new recipe..."
-                value="">
-            <div class="form-group">
-                <label for="tags">Tag</label>
-                <input type="text" class="form-control" id="newTag" name="newTag" [(ngModel)]="newTag" (keyup.enter)="addTag()" >
-            </div>
-        </div>
-    </form>
-    <div *ngFor="let tag of tags">
-        {{tag}}
-    </div>
-</div>-->

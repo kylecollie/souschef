@@ -6,7 +6,7 @@ export interface Recipe {
     description: string; // required field
     ingredients: Ingredient[]; // recipe can have one or more ingredients
     instructions: Instruction[]; // recipe can have one or more instructions
-    // tags: string[]; // recipe can have one or more tags or keywords
+    tags: string[]; // recipe can have one or more tags or keywords
     imagePath: string; // optional field
 }
 
