@@ -1,0 +1,15 @@
+<!--instruction.component.html-->
+<div [formGroup]="instructionForm">
+    <!--order-->
+    <div>
+        <label for="order">Order</label>
+        <input type="number" formControlName="order" value="">
+        <small class="text-danger" [hidden]="instructionForm.controls.order.valid">Instruction order is required (number).</small>
+    </div>
+    <!--direction-->
+    <div>
+        <label for="direction">Direction</label>
+        <input type="text" formControlName="direction" value="">
+        <small class="text-danger" [hidden]="instructionForm.controls.direction.valid">Direction is required (minimum 5 characters).</small>
+    </div>
+</div>

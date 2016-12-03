@@ -22,27 +22,10 @@
             <div *ngFor="let ingredient of myForm.controls.ingredients.controls; let i=index" >
                 <div>
                     <span>Ingredient {{i + 1}}</span>
-                    <span *ngIf="myForm.controls.ingredients.controls.length  > 1" (click)="removeIngredient(i)" ></span>
+                    <span class="glyphicon glyphicon-remove pull-right" *ngIf="myForm.controls.ingredients.controls.length  > 1" (click)="removeIngredient(i)" ></span>
                 </div>
                 <div [formGroupName]="i" >
-                    <!--name-->
-                    <div>
-                        <label for="name">Name</label>
-                        <input type="text" formControlName="name" value="">
-                        <small class="text-danger" [hidden]="myForm.controls.ingredients.controls[i].controls.name.valid" >Ingredient name is required (minimum 5 characters).</small>
-                    </div>
-                    <!--quantity-->
-                    <div>
-                        <label for="quantity">Quantity</label>
-                        <input type="text" formControlName="quantity" value="">
-                        <small class="text-danger" [hidden]="myForm.controls.ingredients.controls[i].controls.quantity.valid" >Ingredient quantity is required .</small>
-                    </div>
-                    <!--measurement-->
-                    <div>
-                        <label for="measurement">Measurement</label>
-                        <input type="text" formControlName="measurement" value="">
-                        <small class="text-danger" [hidden]="myForm.controls.ingredients.controls[i].controls.measurement.valid" >Ingredient measurement is required (minimum 3 characters).</small>
-                    </div>
+                    <ingredient [group]="myForm.controls.ingredients.controls[i]"></ingredient>
                 </div>
             </div>
         </div>
@@ -54,21 +37,10 @@
             <div *ngFor="let instruction of myForm.controls.instructions.controls; let j=index" >
                 <div>
                     <span>Instruction {{j + 1}}</span>
-                    <span *ngIf="myForm.controls.instructions.controls.length > 1" (click)="removeInstruction(j)" ></span>
+                    <span class="glyphicon glyphicon-remove pull-right" *ngIf="myForm.controls.instructions.controls.length > 1" (click)="removeInstruction(j)" ></span>
                 </div>
                 <div [formGroupName]="j" >
-                    <!--order-->
-                    <div>
-                        <label for="order">Order</label>
-                        <input type="number" formControlName="order" value="">
-                        <small class="text-danger" [hidden]="myForm.controls.instructions.controls[j].controls.order.valid" >Instruction order is required (number).</small>
-                    </div>
-                    <!--direction-->
-                    <div>
-                        <label for="direction">Direction</label>
-                        <input type="text" formControlName="direction" value="">
-                        <small class="text-danger" [hidden]="myForm.controls.instructions.controls[j].controls.direction.valid" >Direction is required (minimum 5 characters).</small>
-                    </div>
+                    <instruction [group]="myForm.controls.instructions.controls[j]"></instruction>
                 </div>
             </div>
         </div>
