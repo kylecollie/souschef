@@ -11,8 +11,9 @@ import { Recipe } from './recipe.interface';
 
 export class RecipeFormComponent implements OnInit {
     public myForm: FormGroup;
+    public recipes: Recipe[];
 
-    constructor(private _fb: FormBuilder) { }
+    constructor(private _fb: FormBuilder, private recipeService: RecipeService) { }
 
     ngOnInit() {
         // initilize form here
@@ -84,7 +85,13 @@ export class RecipeFormComponent implements OnInit {
     }
 
     save(model: FormGroup) {
+        // console.log(JSON.stringify(model.value));
         // call API to save recipe
-        console.log(JSON.stringify(model.value));
+        var newRecipe = <Recipe>{};
+        newRecipe = model.value;
+        this.recipeService.addRecipe(newRecipe).subscribe(recipe => {
+            this.myForm.reset();
+        })
+        // console.log(newRecipe);
     }
 }

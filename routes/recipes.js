@@ -38,7 +38,7 @@ router.post('/recipe', function (req, res, next) {
             if (err) {
                 res.send(err);
             }
-            res.json(recipes);
+            res.json(recipe);
         });
     }
 });
@@ -47,11 +47,11 @@ router.post('/recipe', function (req, res, next) {
 router.delete('/recipe/:id', function (req, res, next) {
     db.recipes.remove({
         _id: mongojs.ObjectId(req.params.id)
-    }, function (err, recipes) {
+    }, function (err, recipe) {
         if (err) {
             res.send(err);
         }
-        res.json(recipes);
+        res.json(recipe);
     });
 });
 
@@ -88,11 +88,11 @@ router.put('/recipe/:id', function (req, res, next) {
     } else {
         db.recipes.update({
             _id: mongojs.ObjectId(req.params.id)
-        }, updRecipe, {}, function (err, recipes) {
+        }, updRecipe, {}, function (err, recipe) {
             if (err) {
                 res.send(err);
             }
-            res.json(recipes);
+            res.json(recipe);
         });
     }
 });
