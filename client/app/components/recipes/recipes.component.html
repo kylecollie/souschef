@@ -1,6 +1,23 @@
-<div *ngFor="let recipe of recipes">
-    <span>{{recipe.title}} - {{recipe.description}}  <img src="{{recipe.imagePath}}" alt=""></span>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="list-group">
+                <div *ngFor="let recipe of recipes">
+                    <li class="list-group-item">{{recipe.title}} - {{recipe.description}}></li>
+                </div>
+            </ul>
+        </div>
+    </div>
 </div>
+
+
+
+
+
+
+
+
+
 
 <!--<div class="page-header">
     <h2>{{recipes?.title}} <small>{{recipes?.description}}</small></h2>

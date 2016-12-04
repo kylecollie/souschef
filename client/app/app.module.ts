@@ -27,6 +27,10 @@ import { AboutComponent } from './components/misc/about.component';
       {
         path: 'about',
         component: AboutComponent
+      },
+      {
+        path: 'recipes',
+        component: RecipesComponent
       }
     ])
     ],
