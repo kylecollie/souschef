@@ -4,3 +4,8 @@
 .tags span {
     margin: 5px;
 }
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 0px;
+}

@@ -11,6 +11,7 @@ import { InstructionComponent } from './components/recipes/instruction.component
 import { TagComponent } from './components/recipes/tag.component';
 import { RecipeFormComponent } from './components/recipes/recipeForm.component';
 import { AboutComponent } from './components/misc/about.component';
+import { HomeComponent } from './components/misc/home.component';
 
 
 @NgModule({
@@ -31,6 +32,10 @@ import { AboutComponent } from './components/misc/about.component';
       {
         path: 'recipes',
         component: RecipesComponent
+      },
+      {
+        path: 'home',
+        component: HomeComponent
       }
     ])
     ],
@@ -41,7 +46,8 @@ import { AboutComponent } from './components/misc/about.component';
     IngredientComponent,
     InstructionComponent,
     TagComponent,
-    AboutComponent
+    AboutComponent,
+    HomeComponent
   ],
   bootstrap: [AppComponent]
 })
