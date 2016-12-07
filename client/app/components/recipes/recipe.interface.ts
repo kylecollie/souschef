@@ -8,6 +8,9 @@ export interface Recipe {
     instructions: Instruction[]; // recipe can have one or more instructions
     tags: string[]; // recipe can have one or more tags or keywords
     imagePath: string; // optional field
+    rating: number; // optional
+    category: string; //optional
+    comments: string; //optional
 }
 
 export interface Ingredient {

@@ -9,3 +9,7 @@
   min-height: 50px;
   margin-bottom: 0px;
 }
+
+html,body{height:100%;}
+.carousel,.item,.active{height:100%;}
+.carousel-inner{height:100%;}
