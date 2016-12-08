@@ -29,7 +29,10 @@ export class RecipeFormComponent implements OnInit {
             tags: this._fb.array([
                 this.initTag(),
             ]),
-            imagePath: ['']
+            imagePath: [''],
+            rating: [''],
+            category: [''],
+            comments: ['']
         });
     }
 
@@ -85,13 +88,11 @@ export class RecipeFormComponent implements OnInit {
     }
 
     save(model: FormGroup) {
-        // console.log(JSON.stringify(model.value));
         // call API to save recipe
         var newRecipe = <Recipe>{};
         newRecipe = model.value;
         this.recipeService.addRecipe(newRecipe).subscribe(recipe => {
             this.myForm.reset();
         })
-        // console.log(newRecipe);
     }
 }

@@ -72,6 +72,21 @@
                     <label for="imagePath">Image Path</label>
                     <input type="text" class="form-control" formControlName="imagePath" placeholder="Add a full path name to a picture..." value="">
                 </div>
+                <!--rating-->
+                <div class="form-group">
+                    <label for="rating">Rating</label>
+                    <input type="number" class="form-control" forControlName="rating" value="">
+                </div>
+                <!--category-->
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <input type="text" class="form-control" formGroupName="category" placeholder="Add a category for grouping..." value="">
+                </div>
+                <!--comments-->
+                <div class="form-group">
+                    <label for="comment">Comment:</label>
+                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                </div>
                 <div class="margin-20">
                     <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
                 </div>
