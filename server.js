@@ -24,6 +24,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/', index);
 app.use('/api', recipes);
 
+// serve index.html for all remaining routes, in order to leave routing up to angular
+    app.all("/*", function(req, res, next) {
+        res.sendfile("index.html", { root: __dirname + "/views" });
+    });
+
 app.listen(port, function () {
     console.log('Server started on port ' + port);
 });
