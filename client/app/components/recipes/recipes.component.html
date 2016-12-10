@@ -13,7 +13,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let recipe of recipes">
-                        <td>{{recipe.title}}</td>
+                        <td><a [routerLink]="['/recipe', recipe._id]">{{recipe.title}}</a></td>
                         <td>{{recipe.description}}</td>
                         <td>
                             <p data-placement="top" data-toggle="tooltip" title="Edit">

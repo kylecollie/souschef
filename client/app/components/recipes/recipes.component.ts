@@ -15,7 +15,6 @@ export class RecipesComponent {
         this.recipeService.getRecipes()
             .subscribe(recipes => {
                 this.recipes = recipes;
-                console.log(recipes);
             });
     }
 

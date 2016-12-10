@@ -17,7 +17,6 @@ var RecipesComponent = (function () {
         this.recipeService.getRecipes()
             .subscribe(function (recipes) {
             _this.recipes = recipes;
-            console.log(recipes);
         });
     }
     RecipesComponent.prototype.deleteRecipe = function (id) {

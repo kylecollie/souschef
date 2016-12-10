@@ -12,6 +12,7 @@ import { TagComponent } from './components/recipes/tag.component';
 import { RecipeFormComponent } from './components/recipes/recipeForm.component';
 import { AboutComponent } from './components/misc/about.component';
 import { HomeComponent } from './components/misc/home.component';
+import { RecipeComponent } from './components/recipes/recipe.component';
 
 
 @NgModule({
@@ -34,6 +35,10 @@ import { HomeComponent } from './components/misc/home.component';
         component: RecipesComponent
       },
       {
+        path: 'recipe/:id',
+        component: RecipeComponent
+      },
+      {
         path: 'home',
         component: HomeComponent
       }
@@ -47,7 +52,8 @@ import { HomeComponent } from './components/misc/home.component';
     InstructionComponent,
     TagComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    RecipeComponent    
   ],
   bootstrap: [AppComponent]
 })
