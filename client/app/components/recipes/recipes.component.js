@@ -20,6 +20,18 @@ var RecipesComponent = (function () {
             console.log(recipes);
         });
     }
+    RecipesComponent.prototype.deleteRecipe = function (id) {
+        var recipes = this.recipes;
+        this.recipeService.deleteRecipe(id).subscribe(function (data) {
+            if (data.n == 1) {
+                for (var index = 0; index < recipes.length; index++) {
+                    if (recipes[index]._id == id) {
+                        recipes.splice(index, 1);
+                    }
+                }
+            }
+        });
+    };
     RecipesComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

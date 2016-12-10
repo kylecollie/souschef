@@ -9,17 +9,22 @@ export class RecipeService {
     }
 
     getRecipes() {
-        return this.http.get('http://localhost:3000/api/recipes')
+        return this.http.get('/api/recipes')
             .map(res => res.json());
     }
 
     addRecipe(newRecipe) {
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3000/api/recipe',
+        return this.http.post('/api/recipe',
             JSON.stringify(newRecipe),
             {
                 headers: headers
             }).map(res => res.json());
+    }
+
+    deleteRecipe(id) {
+        return this.http.delete('/api/recipe/' + id)
+        .map(res => res.json()) ;
     }
 }

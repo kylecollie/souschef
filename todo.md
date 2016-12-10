@@ -6,5 +6,5 @@ ToDo List
 + date added is included in mongodb _id : http://stackoverflow.com/questions/6452021/getting-timestamp-from-mongodb-id/27613766#27613766
 + add comments/notes to form
 + add search
-
++ update Recipe class
 1707 800

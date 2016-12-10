@@ -18,4 +18,19 @@ export class RecipesComponent {
                 console.log(recipes);
             });
     }
+
+    deleteRecipe(id) {
+        var recipes = this.recipes;
+
+        this.recipeService.deleteRecipe(id).subscribe(data => {
+            if (data.n == 1) {
+                for (var index = 0; index < recipes.length; index++) {
+                    if (recipes[index]._id == id) {
+                        recipes.splice(index, 1);
+                    }
+                }
+            }
+        });
+        
+    }
 }
