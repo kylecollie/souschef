@@ -1,10 +1,93 @@
 <!--recipe.component.html-->
 
 <div class="container">
+
     <div class="row">
         <div class="col-md-8">
             <h1>{{recipe?.title}}</h1>
-            <span>{{recipe?.description}}</span>
+            <hr>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <p class="text-muted">{{recipe?.description}}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div>
+                <strong> Category: {{recipe?.category}}</strong>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div>
+                <strong>Rating: {{recipe?.rating}}</strong>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div>
+                <p class="text-muted">ID: {{recipe?._id}}</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div>
+        {{recipe?.comments}}
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Ingredients
+                </div>
+                <ul class="list-group">
+                    <div *ngFor="let ingredient of recipe?.ingredients">
+                        <li class="list-group-item">
+                            <span class="badge pull-left">{{ingredient.quantity}}</span> &nbsp;&nbsp; {{ingredient.measurement}}
+                            - {{ingredient.name}}</li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Directions
+                </div>
+                <ul class="list-group">
+                    <div *ngFor="let instruction of recipe?.instructions">
+                        <li class="list-group-item">
+                            <span class="badge pull-left">{{instruction.order}}</span>&nbsp;
+                            <span>{{instruction.direction}}</span>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+        <strong>Tags</strong>
+            <div class="tags">
+                <div *ngFor="let tag of recipe?.tags">
+                    <h4><span class="label label-info">{{tag.tag}}</span></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <br>
+
+    <div>
+        {{recipe?.imagePath}}
+    </div>
+
 </div>
