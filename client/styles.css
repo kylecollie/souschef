@@ -5,11 +5,14 @@
     margin: 5px;
 }
 .navbar {
-  position: relative;
+  position: fixed;
   min-height: 50px;
   margin-bottom: 0px;
 }
 
-html,body{height:100%;}
+html,body{
+    height:100%;
+    padding-top: 30px;
+    }
 .carousel,.item,.active{height:100%;}
 .carousel-inner{height:100%;}
