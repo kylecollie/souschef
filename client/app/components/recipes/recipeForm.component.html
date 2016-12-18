@@ -4,7 +4,7 @@
             <div class="margin-20">
                 <h4>Add recipe</h4>
             </div>
-            <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+            <form role="form" [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
                 <!--fields will go here-->
                 <!--title-->
                 <div class="form-group">
@@ -43,7 +43,7 @@
                             <span class="glyphicon glyphicon-remove pull-right" *ngIf="myForm.controls.instructions.controls.length > 1" (click)="removeInstruction(j)"></span>
                         </div>
                         <div class="panel-body" [formGroupName]="j">
-                            <instruction [group]="myForm.controls.instructions.controls[j]"></instruction>
+                            <instruction [group]="myForm.controls.instructions.controls[j]" [instructionOrder]="j+1"></instruction>
                         </div>
                     </div>
                 </div>

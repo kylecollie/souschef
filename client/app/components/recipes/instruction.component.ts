@@ -10,6 +10,6 @@ import { FormGroup } from '@angular/forms';
 })
 
 export class InstructionComponent {
-    @Input('group')
-    public instructionForm: FormGroup;
+    @Input('group') public instructionForm: FormGroup;
+    @Input() public instructionOrder: number;
 }

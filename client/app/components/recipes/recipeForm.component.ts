@@ -89,6 +89,10 @@ export class RecipeFormComponent implements OnInit {
     }
 
     save(model: FormGroup) {
+        model.markAsDirty();
+        for (let control in model.controls) {
+            model.controls[control].markAsDirty();
+        };
         // call API to save recipe
         var newRecipe = <Recipe>{};
         newRecipe = model.value;
