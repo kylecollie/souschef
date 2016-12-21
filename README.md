@@ -9,7 +9,7 @@ shopping list
 
 - MongoDB
   - Mongo can be installed locally from [here](https://www.mongodb.com/).
-  - Alternatively, [MLab](https://mlab.com/) proves DB-as-a-service with free plans.
+  - Alternatively, [MLab](https://mlab.com/) provides DB-as-a-service with free plans.
 - Node.js
   - Node can be installed from [here](https://nodejs.org/en/).
   - NPM is installed with Node.
