@@ -13,6 +13,7 @@ import { RecipeFormComponent } from './components/recipes/recipeForm.component';
 import { AboutComponent } from './components/misc/about.component';
 import { HomeComponent } from './components/misc/home.component';
 import { RecipeComponent } from './components/recipes/recipe.component';
+import { StarComponent } from './components/misc/star.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { RecipeComponent } from './components/recipes/recipe.component';
     TagComponent,
     AboutComponent,
     HomeComponent,
-    RecipeComponent    
+    RecipeComponent ,
+    StarComponent   
   ],
   bootstrap: [AppComponent]
 })
