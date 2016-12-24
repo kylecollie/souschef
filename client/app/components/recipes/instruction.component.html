@@ -3,7 +3,7 @@
     <!--order-->
     <div class="form-group col-md-3">
         <label for="order">Order</label>
-        <input type="text"class="form-control" name="order" id="order" formControlName="order" value="{{instructionOrder}}">
+        <input type="text"class="form-control" name="order" id="order" formControlName="order" [value]="instructionOrder">
         <small class="text-danger" [hidden]="instructionForm.controls.order.valid">Instruction order is required (number).</small>
     </div>
     <!--direction-->

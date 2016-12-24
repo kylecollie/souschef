@@ -71,21 +71,25 @@
                 <div class="form-group">
                     <label for="imagePath">Image Path</label>
                     <input type="text" class="form-control" formControlName="imagePath" placeholder="Add a full path name to a picture..." value="">
+                    <small *ngIf="!myForm.controls.imagePath.valid" class="text-danger">imagePath is required.</small>
                 </div>
                 <!--rating-->
                 <div class="form-group">
                     <label for="rating">Rating</label>
-                    <input type="number" class="form-control" forControlName="rating" value="">
+                    <input type="number" class="form-control" formControlName="rating" value="">
+                    <small *ngIf="!myForm.controls.rating.valid" class="text-danger">rating is required.</small>
                 </div>
                 <!--category-->
                 <div class="form-group">
                     <label for="category">Category</label>
-                    <input type="text" class="form-control" formGroupName="category" placeholder="Add a category for grouping..." value="">
+                    <input type="text" class="form-control" formControlName="category" placeholder="Add a category for grouping..." value="">
+                    <small *ngIf="!myForm.controls.category.valid" class="text-danger">category is required.</small>
                 </div>
                 <!--comments-->
                 <div class="form-group">
-                    <label for="comment">Comment:</label>
-                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                    <label for="comments">Comments:</label>
+                    <textarea class="form-control" rows="5" formControlName="comments" id="comments"></textarea>
+                    <small *ngIf="!myForm.controls.comments.valid" class="text-danger">comments is required.</small>
                 </div>
                 <div class="margin-20">
                     <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>

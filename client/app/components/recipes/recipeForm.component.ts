@@ -29,10 +29,10 @@ export class RecipeFormComponent implements OnInit {
             tags: this._fb.array([
                 this.initTag(),
             ]),
-            imagePath: [''],
-            rating: [''],
-            category: [''],
-            comments: ['']
+            imagePath: ['', Validators.required],
+            rating: [0, Validators.required],
+            category: ['', Validators.required],
+            comments: ['', Validators.required]
         });
     }
 
@@ -89,10 +89,6 @@ export class RecipeFormComponent implements OnInit {
     }
 
     save(model: FormGroup) {
-        model.markAsDirty();
-        for (let control in model.controls) {
-            model.controls[control].markAsDirty();
-        };
         // call API to save recipe
         var newRecipe = <Recipe>{};
         newRecipe = model.value;

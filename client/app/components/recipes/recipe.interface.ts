@@ -7,10 +7,10 @@ export interface Recipe {
     ingredients: Ingredient[]; // recipe can have one or more ingredients
     instructions: Instruction[]; // recipe can have one or more instructions
     tags: string[]; // recipe can have one or more tags or keywords
-    imagePath: string; // optional field
-    rating: number; // optional
-    category: string; //optional
-    comments: string; //optional
+    imagePath: string;
+    rating: number;
+    category: string;
+    comments: string;
 }
 
 export interface Ingredient {
@@ -23,3 +23,4 @@ export interface Instruction {
     order: number; // required field to provide sort order for instructions
     direction: string;   // required field with minimum 5 characters
 }
+ 
