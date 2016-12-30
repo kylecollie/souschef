@@ -17,3 +17,10 @@ export class Recipe {
     "category": string;
     "comments": string;
 }
+
+// export class Recipe implements IRecipe {
+//   constructor (
+                //   public "_id": string,
+                //   ...
+                //  ) {}
+// }
