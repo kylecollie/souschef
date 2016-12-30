@@ -5,8 +5,8 @@ ToDo List
 + date added is included in mongodb _id : http://stackoverflow.com/questions/6452021/getting-timestamp-from-mongodb-id/27613766#27613766
 + ~~add search~~
 + ~~confirm delete~~
-+ on successful add ... do something ... display new recipe? display browse? go home?
-+ change image path textbox to file picker or uploader
++ ~~on successful add ... do something ... display new recipe? display browse? go home?~~
++ ~~change image path textbox to file picker or uploader~~
 
 https://pixabay.com/
 
