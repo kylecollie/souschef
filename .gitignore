@@ -49,3 +49,5 @@ client/app/components/*.js
 client/app/components/*.js.map
 client/app/services/*.js
 client/app/services/*.js.map
+client/*.js
+client/*.js.map
