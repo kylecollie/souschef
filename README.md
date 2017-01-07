@@ -26,4 +26,4 @@ To grab a copy of the project to run locally, simply hit the green "Clone or Dow
 
 There are many "ToDo" items and features to be added in the [Issue Tracker](https://github.com/kylecollie/souschef/issues). Please feel free to submit new issues for bugs or suggestions.
 
-To contribute, please create a feature branch, make your changes then create a pull request. If you are addressing an open issue, please include the Isssue number.
+To contribute, please create a feature branch, make your changes then create a pull request. If you are addressing an open issue, please include the issue number.
