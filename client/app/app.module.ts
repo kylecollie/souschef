@@ -10,8 +10,8 @@ import { IngredientComponent } from './components/recipes/ingredient.component';
 import { InstructionComponent } from './components/recipes/instruction.component';
 import { TagComponent } from './components/recipes/tag.component';
 import { RecipeFormComponent } from './components/recipes/recipeForm.component';
-import { AboutComponent } from './components/misc/about.component';
-import { HomeComponent } from './components/misc/home.component';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
 import { RecipeComponent } from './components/recipes/recipe.component';
 import { StarComponent } from './components/misc/star.component';
 
