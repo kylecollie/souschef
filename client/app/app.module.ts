@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import { AppComponent } from './app.component';
+import { SouschefComponent } from './souschef.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { IngredientComponent } from './components/recipes/ingredient.component';
 import { InstructionComponent } from './components/recipes/instruction.component';
@@ -46,7 +46,7 @@ import { StarComponent } from './components/misc/star.component';
     ])
     ],
   declarations: [
-    AppComponent, 
+    SouschefComponent, 
     RecipesComponent, 
     RecipeFormComponent,
     IngredientComponent,
@@ -57,7 +57,7 @@ import { StarComponent } from './components/misc/star.component';
     RecipeComponent ,
     StarComponent   
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [SouschefComponent]
 })
 
 export class AppModule { }
