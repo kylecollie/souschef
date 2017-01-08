@@ -14,6 +14,7 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { RecipeComponent } from './components/recipes/recipe.component';
 import { StarComponent } from './components/misc/star.component';
+import { RecipeService } from './services/recipe.service';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { StarComponent } from './components/misc/star.component';
     RecipeComponent ,
     StarComponent   
   ],
+  providers: [RecipeService],
   bootstrap: [SouschefComponent]
 })
 
