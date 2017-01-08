@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { SouschefComponent } from './souschef.component';
-import { RecipesComponent } from './components/recipes/recipes.component';
+import { RecipesComponent } from './recipes/recipe-list/recipes.component';
 import { IngredientComponent } from './components/recipes/ingredient.component';
 import { InstructionComponent } from './components/recipes/instruction.component';
 import { TagComponent } from './components/recipes/tag.component';

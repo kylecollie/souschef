@@ -43,6 +43,8 @@ junk
 # typescript transcompiled output
 client/app/*.js
 client/app/*.js.map
+client/app/recipes/recipe-list/*.js
+client/app/recipes/recipe-list/*.js.map
 client/app/about/*.js
 client/app/about/*.js.map
 client/app/home/*.js
