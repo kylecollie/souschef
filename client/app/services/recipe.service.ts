@@ -1,35 +1,57 @@
+// recipe.service.ts
+
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
+
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/throw';
+
+import { Recipe } from '../../Recipe';
 
 @Injectable()
 export class RecipeService {
-    constructor(private http: Http) {
-        console.log('Recipe Service Initialized...');
-    }
+    constructor(private http: Http) { }
 
     getRecipes() {
-        return this.http.get('/api/recipes')
-            .map(res => res.json());
+        return this.http
+            .get('/api/recipes')
+            .map((response: Response) => <Recipe[]>response.json())
+            .catch(this.handleError);
     }
 
     getRecipe(id) {
-        return this.http.get('api/recipe/' + id)
-            .map(res => res.json());
+        return this.http
+            .get('api/recipe/' + id)
+            .map(res => res.json())
+            .catch(this.handleError);
     }
 
     addRecipe(newRecipe) {
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/api/recipe',
-            JSON.stringify(newRecipe),
-            {
-                headers: headers
-            }).map(res => res.json());
+        return this.http
+            .post('/api/recipe',
+                  JSON.stringify(newRecipe),
+                  {
+                    headers: headers
+                  })
+            .map(res => res.json())
+            .catch(this.handleError);
     }
 
     deleteRecipe(id) {
-        return this.http.delete('/api/recipe/' + id)
-            .map(res => res.json());
+        return this.http
+            .delete('/api/recipe/' + id)
+            .map(res => res.json())
+            .catch(this.handleError);
+            
+    }
+
+    private handleError(error: Response) {
+        let msg = `Error status code ${error.status} at ${error.url}`;
+        console.error(msg);
+        return Observable.throw(msg);
     }
 }

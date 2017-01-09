@@ -10,12 +10,14 @@ import { Recipe } from '../../../Recipe';
 
 export class RecipesComponent {
     recipes: Recipe[];
+    errorMessage: string;
 
     constructor(private recipeService: RecipeService) {
         this.recipeService.getRecipes()
-            .subscribe(recipes => {
-                this.recipes = recipes;
-            });
+            .subscribe(
+                recipes => this.recipes = recipes,
+                error => this.errorMessage = <any>error
+            );
     }
 
     deleteRecipe(id) {
