@@ -3,12 +3,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/throw';
-
-import { Recipe } from '../../Recipe';
+import { Recipe } from '../../models/Recipe';
 
 @Injectable()
 export class RecipeService {
@@ -33,10 +28,10 @@ export class RecipeService {
         headers.append('Content-Type', 'application/json');
         return this.http
             .post('/api/recipe',
-                  JSON.stringify(newRecipe),
-                  {
-                    headers: headers
-                  })
+            JSON.stringify(newRecipe),
+            {
+                headers: headers
+            })
             .map(res => res.json())
             .catch(this.handleError);
     }
@@ -46,12 +41,13 @@ export class RecipeService {
             .delete('/api/recipe/' + id)
             .map(res => res.json())
             .catch(this.handleError);
-            
+
     }
 
     private handleError(error: Response) {
+        console.error(error);
         let msg = `Error status code ${error.status} at ${error.url}`;
-        console.error(msg);
+        console.log(msg);
         return Observable.throw(msg);
     }
 }

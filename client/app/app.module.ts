@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import './core/rxjs-extensions';
 
 import { SouschefComponent } from './souschef.component';
 import { RecipesComponent } from './recipes/recipe-list/recipes.component';
@@ -13,8 +14,8 @@ import { RecipeFormComponent } from './components/recipes/recipeForm.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { RecipeComponent } from './components/recipes/recipe.component';
-import { StarComponent } from './components/misc/star.component';
-import { RecipeService } from './services/recipe.service';
+import { StarComponent } from './core/stars/star.component';
+import { RecipeService } from './recipes/shared/recipe.service';
 
 
 @NgModule({

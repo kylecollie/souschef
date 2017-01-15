@@ -3,8 +3,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { RecipeService } from '../../services/recipe.service';
-import { Recipe } from '../../../Recipe';
+import { RecipeService } from '../../recipes/shared/recipe.service';
+import { Recipe } from '../../models/Recipe';
 
 
 @Component({

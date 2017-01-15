@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { RecipeService } from '../../services/recipe.service';
-import { Recipe } from '../../../Recipe';
+import { RecipeService } from '../shared/recipe.service';
+import { Recipe } from '../../models/Recipe';
 
 @Component({
     moduleId: module.id,
