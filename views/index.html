@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <base href="/"/>
+  <base href="/" />
   <title>Sous Chef</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,12 +17,14 @@
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="systemjs.config.js"></script>
   <script>
-      System.import('app').catch(function(err){ console.error(err); });
-    </script>
+    System.import('app').catch(function (err) {
+      console.error(err);
+    });
+  </script>
 </head>
 
 <body>
-  <my-app>Loading Sous Chef ...</my-app>
+  <sc-app>Loading Sous Chef ...</sc-app>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
-import { RecipeService } from '../../services/recipe.service';
+import { RecipeService } from '../../recipes/shared/recipe.service';
 import { Recipe } from './recipe.interface';
 
 @Component({
@@ -39,9 +39,6 @@ export class RecipeFormComponent implements OnInit {
     initIngredient() {
         return this._fb.group({
             ingredient: ['', Validators.required]
-            // name: ['', [Validators.required, Validators.minLength(5)]],
-            // quantity: ['', [Validators.required]],
-            // measurement: ['', [Validators.required, Validators.minLength(3)]]
         });
     }
 
