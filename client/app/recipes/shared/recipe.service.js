@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
+var Observable_1 = require('rxjs/Observable');
 var RecipeService = (function () {
     function RecipeService(http) {
         this.http = http;
@@ -47,7 +48,7 @@ var RecipeService = (function () {
         console.error(error);
         var msg = "Error status code " + error.status + " at " + error.url;
         console.log(msg);
-        return Observable.throw(msg);
+        return Observable_1.Observable.throw(msg);
     };
     RecipeService = __decorate([
         core_1.Injectable(), 

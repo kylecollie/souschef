@@ -15,7 +15,7 @@ export class RecipesComponent {
     constructor(private recipeService: RecipeService) {
         this.recipeService.getRecipes()
             .subscribe(
-                recipes => this.recipes = recipes,
+                recipes => this.recipes = <Recipe[]>recipes,
                 error => this.errorMessage = <any>error
             );
     }
