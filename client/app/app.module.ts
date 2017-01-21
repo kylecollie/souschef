@@ -2,61 +2,31 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
 import './core/rxjs-extensions';
 
 import { SouschefComponent } from './souschef.component';
-import { RecipesComponent } from './recipes/recipe-list/recipes.component';
+import { AppRoutingModule, routableComponents } from './app-routing.module';
 import { IngredientComponent } from './components/recipes/ingredient.component';
 import { InstructionComponent } from './components/recipes/instruction.component';
 import { TagComponent } from './components/recipes/tag.component';
-import { RecipeFormComponent } from './components/recipes/recipeForm.component';
-import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
-import { RecipeComponent } from './components/recipes/recipe.component';
 import { StarComponent } from './core/stars/star.component';
 import { RecipeService } from './recipes/shared/recipe.service';
 
 
 @NgModule({
   imports: [
-    BrowserModule, 
+    BrowserModule,
+    AppRoutingModule,
     FormsModule, 
     ReactiveFormsModule , 
     HttpModule,
-    RouterModule.forRoot([
-      {
-        path: 'addRecipe',
-        component: RecipeFormComponent
-      },
-      {
-        path: 'about',
-        component: AboutComponent
-      },
-      {
-        path: 'recipes',
-        component: RecipesComponent
-      },
-      {
-        path: 'recipe/:id',
-        component: RecipeComponent
-      },
-      {
-        path: 'home',
-        component: HomeComponent
-      }
-    ])
     ],
   declarations: [
-    SouschefComponent, 
-    RecipesComponent, 
-    RecipeFormComponent,
+    SouschefComponent,
+    routableComponents,
     IngredientComponent,
     InstructionComponent,
     TagComponent,
-    AboutComponent,
-    HomeComponent,
-    RecipeComponent ,
     StarComponent   
   ],
   providers: [RecipeService],

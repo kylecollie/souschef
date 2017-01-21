@@ -25,7 +25,7 @@ export class RecipeComponent {
         let id = this.route.snapshot.params['id'];
         this.recipeService.getRecipe(id)
             .subscribe(recipe =>
-                this.recipe = recipe
+                this.recipe = <Recipe>recipe
             );
     }
 };
