@@ -1,0 +1,95 @@
+<!--recipe-detail.component.html-->
+<div class="panel panel-primary">
+    <div class="panel-heading" style="font-size: large">
+        {{recipe?.title}}
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-8">
+                <p class="text-muted">{{recipe?.description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div>
+                    <strong> Category: {{recipe?.category}}</strong>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div>
+                    <strong>Rating: {{recipe?.rating}}</strong>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    <p class="text-muted">ID: {{recipe?._id}}</p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            {{recipe?.comments}}
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Ingredients
+                    </div>
+                    <ul class="list-group">
+                        <div *ngFor="let ingredient of recipe?.ingredients">
+                            <li class="list-group-item">
+                                <div *ngIf="ingredient.ingredient">
+                                    {{ingredient.ingredient}}
+                                </div>
+                                <div *ngIf="ingredient.name">
+                                    <span class="badge pull-left">{{ingredient.quantity}}</span> &nbsp;&nbsp; {{ingredient.measurement}}
+                                    - {{ingredient.name}}
+                                </div>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Directions
+                    </div>
+                    <ul class="list-group">
+                        <div *ngFor="let instruction of recipe?.instructions">
+                            <li class="list-group-item">
+                                <span class="badge pull-left">{{instruction.order}}</span>&nbsp;
+                                <span>{{instruction.direction}}</span>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <strong>Tags</strong>
+                <div class="tags">
+                    <div *ngFor="let tag of recipe?.tags">
+                        <h4><span class="label label-info">{{tag}}</span></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            {{recipe?.imagePath}}
+        </div>
+    </div>
+    
+    <div class="panel-footer">
+        <a class="btn btn-default" (click)="onBack()">
+            <i class="glyphicon glyphicon-chevron-left"></i>Back
+        </a>
+        <a class="btn btn-primary btn-sm" [routerLink]="['/recipeEdit/' + recipe?._id]">Edit</a>
+    </div>
+</div>

@@ -1,0 +1,153 @@
+<!--recipe-edit.component.html-->
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" novalidate (ngSubmit)="saveRecipe()" [formGroup]="recipeForm">
+            <fieldset>
+                <div class="form-group" [ngClass]="{'has-error': displayMessage._id}">
+                    <label class="col-md-2 control-label" for="_idId">Id</label>
+                    <div class="col-md-8">
+                        <input class="form-control" id="_idId" type="text" placeholder="_id" formControlName="_id" readonly />
+                        <span class="help-block" *ngIf="displayMessage._id">
+                                {{ displayMessage._id}}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error': displayMessage.title}">
+                    <label class="col-md-2 control-label" for="titleId">Recipe Title</label>
+                    <div class="col-md-8">
+                        <input class="form-control" id="titleId" type="text" placeholder="Title (required)" formControlName="title" />
+                        <span class="help-block" *ngIf="displayMessage.title">
+                                {{displayMessage.title}}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error': displayMessage.description}">
+                    <label class="col-md-2 control-label" for="descriptionId">Description</label>
+                    <div class="col-md-8">
+                        <input class="form-control" id="descriptionId" type="text" placeholder="Description (required)" rows=3 formControlName="description"
+                        />
+                        <span class="help-block" *ngIf="displayMessage.description">
+                                {{displayMessage.description}}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error': displayMessage.rating}">
+                    <label class="col-md-2 control-label" for="ratingId">Rating (1-5)</label>
+                    <div class="col-md-8">
+                        <input class="form-control" id="ratingId" type="text" placeholder="Rating" formControlName="rating" />
+                        <span class="help-block" *ngIf="displayMessage.rating">
+                                {{displayMessage.rating}}
+                        </span>
+                    </div>
+                </div>
+                <!--ingredients-->
+
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+                        <span>
+                            <button class="btn btn-primary" 
+                                    type="button"
+                                    [disabled]="!ingredients.valid"
+                                    (click)="addIngredient()">
+                                    Add Another Ingredient
+                            </button>
+                        </span>
+                    </div>
+                </div>
+
+
+                <div formArrayName="ingredients" *ngFor="let ingredient of ingredients.controls; let j=index">
+                    <div [formGroupName]="j">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" attr.for="{{'name' + j}}">Ingredient Name</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="{{'name' + j}}" placeholder="Ingredient name" formControlName="name + j">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" attr.for="{{'quantity' + j}}">Quantity</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="{{'quantity' + j}}" placeholder="Quantity" formControlName="quantity + j">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" attr.for="{{'measurement' + j}}">Measurement</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="{{'measurement' + j}}" placeholder="Measurement (cup, tsp, tbspn, ounce, pound, etc.)" formControlName="measurement + j">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--ingredients-->                
+                <div formArrayName="tags">
+                    <div class="row">
+                        <button class="col-md-offset-1 col-md-1 btn btn-default" type="button" (click)="addTag()">Add Tag
+                        </button>
+                    </div>
+                    <div class="form-group" *ngFor="let tag of tags.controls; let i=index">
+                        <label class="col-md-2 control-label" [attr.for]="i">Tag</label>
+                        <div class="col-md-8">
+                            <input class="form-control" [id]="i" type="text" placeholder="Tag" [formControlName]="i" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error': displayMessage.category}">
+                    <label class="col-md-2 control-label" for="categoryId">Category</label>
+                    <div class="col-md-8">
+                        <textarea class="form-control" id="categoryId" placeholder="Category" formControlName="category"></textarea>
+                        <span class="help-block" *ngIf="displayMessage.category">
+                                {{ displayMessage.category}}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error': displayMessage.comments}">
+                    <label class="col-md-2 control-label" for="commentsId">Comments</label>
+                    <div class="col-md-8">
+                        <textarea class="form-control" id="commentsId" placeholder="Comments" rows=3 formControlName="comments"></textarea>
+                        <span class="help-block" *ngIf="displayMessage.comments">
+                                {{ displayMessage.comments}}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error': displayMessage.imagePath}">
+                    <label class="col-md-2 control-label" for="imagePathId">ImagePath</label>
+                    <div class="col-md-8">
+                        <textarea class="form-control" id="imagePathId" placeholder="ImagePath" formControlName="imagePath"></textarea>
+                        <span class="help-block" *ngIf="displayMessage.imagePath">
+                                {{ displayMessage.imagePath}}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+                        <span>
+                            <button class="btn btn-primary"
+                                    type="submit"
+                                    style="width:80px;margin-right:10px"
+                                    [disabled]='!recipeForm.valid'>
+                                Save
+                            </button>
+                        </span>
+                        <span>
+                            <a class="btn btn-default"
+                               style="width:80px"
+                               [routerLink]="['/recipes']">
+                                Cancel
+                            </a>
+                        </span>
+                        <span>
+                            <a class="btn btn-default"
+                               style="width:80px"
+                               (click)="deleteRecipe()">
+                                Delete
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

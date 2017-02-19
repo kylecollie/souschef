@@ -41,6 +41,8 @@ bower_components
 junk
 
 # typescript transcompiled output
+client/app/recipes/shared/*.js
+client/app/recipes/shared/*.js.map
 client/app/**/*.js
 client/app/**/*.map
 client/app/*.js

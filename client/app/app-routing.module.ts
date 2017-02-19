@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { RecipesComponent } from './recipes/recipe-list/recipes.component';
-import { RecipeComponent } from './components/recipes/recipe.component';
+import { RecipeDetailComponent } from './recipes/recipe/recipe-detail.component';
+import { RecipeEditComponent } from './recipes/recipe/recipe-edit.component';
 import { AboutComponent } from './about/about.component';
 import { RecipeFormComponent } from './components/recipes/recipeForm.component';
 import { PageNotFoundComponent } from './core/404/pageNotFound.component';
@@ -13,7 +14,9 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
   { path: 'recipes', component: RecipesComponent },
-  { path: 'recipe/:id', component: RecipeComponent },
+  { path: 'recipe/:id', component: RecipeDetailComponent },
+  { path: 'recipeEdit/:id', component: RecipeEditComponent },
+  { path: 'recipeEdit', component: RecipeEditComponent },
   { path: 'about', component: AboutComponent },
   { path: 'addRecipe', component: RecipeFormComponent },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent },  
@@ -28,7 +31,8 @@ export class AppRoutingModule { }
 export const routableComponents = [
       HomeComponent,
       RecipesComponent,
-      RecipeComponent,
+      RecipeDetailComponent,
+      RecipeEditComponent,
       AboutComponent,
       RecipeFormComponent,
       PageNotFoundComponent

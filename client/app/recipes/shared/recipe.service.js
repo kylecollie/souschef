@@ -12,9 +12,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var Observable_1 = require('rxjs/Observable');
+require('rxjs/add/operator/do');
+require('rxjs/add/operator/catch');
+require('rxjs/add/observable/throw');
+require('rxjs/add/operator/map');
+require('rxjs/add/observable/of');
 var RecipeService = (function () {
     function RecipeService(http) {
         this.http = http;
+        this.baseUrl = '/api/recipes';
     }
     RecipeService.prototype.getRecipes = function () {
         return this.http
@@ -32,7 +38,7 @@ var RecipeService = (function () {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
         return this.http
-            .post('/api/recipe', JSON.stringify(newRecipe), {
+            .post(this.baseUrl, JSON.stringify(newRecipe), {
             headers: headers
         })
             .map(function (res) { return res.json(); })
@@ -40,9 +46,37 @@ var RecipeService = (function () {
     };
     RecipeService.prototype.deleteRecipe = function (id) {
         return this.http
-            .delete('/api/recipe/' + id)
+            .delete('api/recipe/' + id)
             .map(function (res) { return res.json(); })
             .catch(this.handleError);
+    };
+    RecipeService.prototype.saveRecipe = function (recipe) {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        console.log(JSON.stringify(recipe));
+        if (!recipe._id) {
+            return this.createRecipe(recipe, options);
+        }
+        return this.updateRecipe(recipe, options);
+    };
+    RecipeService.prototype.createRecipe = function (recipe, options) {
+        recipe._id = undefined;
+        return this.http.post('api/recipe/', recipe, options)
+            .map(this.extractData)
+            .do(function (data) { return console.log('createRecipe: ' + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
+    RecipeService.prototype.updateRecipe = function (recipe, options) {
+        var url = 'api/recipe' + "/" + recipe._id;
+        console.log(url);
+        return this.http.put(url, recipe, options)
+            .map(function () { return recipe; })
+            .do(function (data) { return console.log('updateRecipe: ' + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
+    RecipeService.prototype.extractData = function (response) {
+        var body = response.json();
+        return body.data || {};
     };
     RecipeService.prototype.handleError = function (error) {
         console.error(error);

@@ -1,7 +1,7 @@
-// recipe.component.ts
+// recipe-detail.component.ts 
 
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { RecipeService } from '../../recipes/shared/recipe.service';
 import { Recipe } from '../../models/Recipe';
@@ -10,15 +10,16 @@ import { Recipe } from '../../models/Recipe';
 @Component({
     moduleId: module.id,
     selector: 'recipe',
-    templateUrl: 'recipe.component.html'
+    templateUrl: 'recipe-detail.component.html'
 })
 
-export class RecipeComponent {
+export class RecipeDetailComponent {
     recipe: Recipe;
 
     constructor(
         private recipeService: RecipeService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private router: Router
     ) { }
 
     ngOnInit() {
@@ -27,5 +28,9 @@ export class RecipeComponent {
             .subscribe(recipe =>
                 this.recipe = <Recipe>recipe
             );
+    }
+
+    onBack(): void {
+        this.router.navigate(['/recipes']);
     }
 };
